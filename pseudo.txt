@@ -1,1 +1,20 @@
 Rock - Paper - Scissors
+
+Problem solving steps:
+
+1. Understand
+A user plays against the computer. The user can choose between the options Rock, Paper and Scissors. After giving one option as an input,
+the computer chooses a random option. The options get compared and the winner is selected by the follwing rules.
+- Rocks wins against scissors, but looses against paper
+- Scissors wins against paper, but looses against Rock
+- Paper wins against rock, but looses against scissors
+After a round is completed,  the game restarts
+2. Plan
+Requirement
+user gives input
+The input gets checked if its viable, it is also case insensitive
+A round counter gets incremented
+The computer randomly returns one option
+declare winner
+
+3. Divide Problem in smaller Problems
