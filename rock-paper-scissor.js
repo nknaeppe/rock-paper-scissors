@@ -28,10 +28,37 @@ function computerPlay(){
             break;
     }
 }
-
 function playRound(playerSelection, computerSelection){
-
+    if (playerSelection === computerSelection){
+        return "Draw";
+    }
+    if ( playerSelection === "rock"){
+        if (computerSelection === "paper" ){
+            return "Computer Wins";
+        }
+        if (computerSelection === "scissors" ){
+            return "Player Wins";
+        }
+    }
+    if ( playerSelection === "paper"){
+        if (computerSelection === "scissors" ){
+            return "Computer Wins";
+        }
+        if (computerSelection === "rock" ){
+            return "Player Wins";
+        }
+    }
+    if ( playerSelection === "scissors"){
+        if (computerSelection === "rock" ){
+            return "Computer Wins";
+        }
+        if (computerSelection === "paper" ){
+            return "Player Wins";
+        }
+    }
     
 }
-console.log(playerPlay());
-console.log(computerPlay());
+const playerSelection = "scissors";
+const computerSelection = computerPlay();
+console.log(computerSelection)
+console.log(playRound(playerSelection, computerSelection))

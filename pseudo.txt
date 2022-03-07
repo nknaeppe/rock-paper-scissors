@@ -18,3 +18,19 @@ The computer randomly returns one option
 declare winner
 
 3. Divide Problem in smaller Problems
+- player Selection
+- computer Selection
+- play a Round
+- play 5 games  
+
+
+when playerSelection == rock
+    computerSelection == paper => compuer wins
+    computerSelection == scissors => player wins
+when playerSelection == paper
+    computerSelection == scissors => computer wins
+    computerSelection == rock => player wins
+when playerSelection == scissors
+    computerSelection == rock => computer wins
+    computerSelection == paper => player wins
+else => draw
