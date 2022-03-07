@@ -60,11 +60,25 @@ function playRound(playerSelection, computerSelection){
 }
 
 function game(){
-    
+    let playerWins;
+    let computerWins;
+    let winner;
     for (let i = 0; i < 5; i++){
-        console.log(playRound(playerPlay(), computerPlay()));
+        let round  = playRound(playerPlay(), computerPlay());
+        if (round === "Player Wins"){
+                playerWins++;
+            }
+            else{
+                computerWins++;
+            }
+            console.log(round);
     }
+
+    winner = (playerWins === computerWins) ? "The game is Draw" :
+    (playerWins > computerWins) ? "The Player wins the game" : 
+    "The Computer wins the game";
+    return winner;
 }
 
 
-game();
+console.log(game());
