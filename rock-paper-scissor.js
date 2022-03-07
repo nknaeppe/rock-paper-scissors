@@ -80,5 +80,4 @@ function game(){
     return winner;
 }
 
-
 console.log(game());
