@@ -80,4 +80,35 @@ function game(){
     return winner;
 }
 
-console.log(game());
+function markPlayerSelection() {
+    const playerButtons = document.querySelectorAll(".rps.player");
+    let playerSelection = "";
+    playerButtons.forEach((e) => {
+        e.addEventListener("click", () => {
+            playerSelection = e.id;
+            playerButtons.forEach((e) => {
+                if (playerSelection === e.id) {
+                    e.style.borderColor = "black";
+                }
+                else if (playerSelection !== e.id) {
+                    e.style.borderColor = null;
+                }
+            })
+        })
+    })
+}
+
+function getPlayerSelection() {
+    const playerButtons = document.querySelectorAll(".rps.player");
+    let playerSelection = "";
+    playerButtons.forEach((e) => {
+        if (e.style.borderColor === "black") {
+            playerSelection = e.id;
+            return playerSelection;
+        }
+        else {
+            return false;
+        }
+    })
+}
+

@@ -4,10 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css" >
+    <title>RPS Game</title>
 </head>
 <body>
-    
+    <header>
+        <nav>Rock Paper Scissors</nav>
+    </header>
+    <h1>Choose Wisely...</h1>
+    <div class="content">
+    <div class="selection">
+        <div id="rock" class="rps player" style="border-color: black">
+            <img src="img/rock.jpeg" alt="Rock">
+            </div>
+            <div id="paper" class="rps player">
+            <img src="img/paper.webp" alt="Paper">
+        </div>
+        <div id="scissors" class="rps player">
+            <img src="img/scissors.jpg" alt="Scissors">
+        </div>
+    </div>
+    <div class="computerOutput">
+        <p>Computer Choice</p>
+        <div class="rps com">
+           <img src="img/questionmark.webp" alt="?">
+        </div>
+    </div>
+    <div class="playButton">
+        <button>Play</button>
+    </div>
+    </div>
+    <footer>
+        Rock Paper Scissors
+    </footer>
 </body>
 <script src="rock-paper-scissor.js"></script>
 </html>
