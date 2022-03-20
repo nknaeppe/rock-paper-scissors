@@ -47,7 +47,7 @@ button{
     justify-content: space-evenly;
     flex-direction: row;
 }
-.rps{
+.rps {
     display: flex;
     border-radius: 2rem;
     border-style: solid;
@@ -63,10 +63,19 @@ button{
     margin-top: 4rem;
     align-items: center;
 }
-.playButton{
-    display: flex;
+.container-playButton{
+    display:flex;
     justify-content: center;
 }
-.playButton :hover{
+
+.container-playButton :hover{
     background-color: #b2c2bf;
+}
+.textOutput{
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+    max-height: 8rem;
+    overflow:auto;
 }

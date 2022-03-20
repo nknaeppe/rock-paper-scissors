@@ -1,17 +1,3 @@
-
-function playerPlay(){
-    while (true){
-        let playerSelection = prompt("Choose between rock, paper, scissors");
-        playerSelection = playerSelection.toLowerCase();
-        if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors"){
-            return playerSelection;
-
-        }else{
-            console.log("Wrong input, try again.")
-        }
-    }
-}
-
 function computerPlay(){
     const randOption = (min=1, max=4) => Math.floor(Math.random() * (max - min) + min );
     switch(randOption()){
@@ -28,8 +14,10 @@ function computerPlay(){
             break;
     }
 }
-function playRound(playerSelection, computerSelection){
-    if (playerSelection === computerSelection){
+function playRound(playerSelection, computerSelection) {
+    console.log(playerSelection);
+    console.log(computerSelection)
+    if (playerSelection === computerSelection) {
         return "Draw";
     }
     if ( playerSelection === "rock"){
@@ -55,60 +43,74 @@ function playRound(playerSelection, computerSelection){
         if (computerSelection === "paper" ){
             return "Player Wins";
         }
+        
     }
+
     
 }
-
-function game(){
-    let playerWins;
-    let computerWins;
-    let winner;
-    for (let i = 0; i < 5; i++){
-        let round  = playRound(playerPlay(), computerPlay());
-        if (round === "Player Wins"){
-                playerWins++;
-            }
-            else{
-                computerWins++;
-            }
-            console.log(round);
-    }
-
-    winner = (playerWins === computerWins) ? "The game is Draw" :
-    (playerWins > computerWins) ? "The Player wins the game" : 
-    "The Computer wins the game";
-    return winner;
-}
-
 function markPlayerSelection() {
-    const playerButtons = document.querySelectorAll(".rps.player");
-    let playerSelection = "";
-    playerButtons.forEach((e) => {
-        e.addEventListener("click", () => {
-            playerSelection = e.id;
-            playerButtons.forEach((e) => {
-                if (playerSelection === e.id) {
-                    e.style.borderColor = "black";
-                }
-                else if (playerSelection !== e.id) {
-                    e.style.borderColor = null;
-                }
-            })
-        })
-    })
+            playerSelection = this.id;
+            if (playerSelection === this.id) {
+                this.style.borderColor = "black";
+            }
 }
 
-function getPlayerSelection() {
-    const playerButtons = document.querySelectorAll(".rps.player");
-    let playerSelection = "";
-    playerButtons.forEach((e) => {
-        if (e.style.borderColor === "black") {
-            playerSelection = e.id;
-            return playerSelection;
-        }
-        else {
-            return false;
+function unmarkPlayerSelection() {
+    playerButtons.forEach(element => {
+        if (element.id !== playerSelection) {
+            element.style.borderColor = null;  
         }
     })
+
 }
+
+function setComputerImg(choice) {
+    switch (choice) {
+        case ("rock"):
+            computerImg.src = "img/rock.jpeg"
+            break;
+        case ("paper"):
+            computerImg.src = "img/paper.webp"
+            break;
+        case ("scissors"):
+            computerImg.src = "img/scissors.jpg"
+            break;
+        case ("reset"):
+            computerImg.src = "img/questionmark.webp"
+            break;
+    }
+}
+
+function outputText(text) {
+    const outputText = document.createElement("p");
+    outputText.textContent = text;
+    outputGame.append(outputText);
+    updateScroll();
+}
+function updateScroll() {
+    outputGame.scrollTop = outputGame.scrollHeight;
+}
+function game() {
+    console.log("Game started");
+    if (playerSelection != "") {
+        const computerChoice = computerPlay()
+        setComputerImg(computerChoice);
+        outputText(playRound(playerSelection, computerChoice));
+    }
+    else {
+        outputText("Make a choice and press play !");
+    }
+}
+
+
+const playerButtons = document.querySelectorAll('.rps.player');
+const contentField = document.querySelector('.content');
+const computerImg = document.querySelector(".com img");
+const outputGame = document.querySelector(".textOutput");
+const playButton = document.querySelector("#playButton");
+let playerSelection = "";
+playerButtons.forEach(element => element.addEventListener("click", markPlayerSelection));
+contentField.addEventListener("click", unmarkPlayerSelection);
+console.log(playButton)
+playButton.addEventListener("click", () => game());
 
